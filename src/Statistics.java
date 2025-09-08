@@ -35,7 +35,7 @@ public final class Statistics {
     public List<Double> zscored() {
         double mean = this.mean();
         double std = this.std();
-        return list.stream().map(x -> std != 0 ? ((x - mean) / std) : 0.0).collect(Collectors.toList());
+        return list.stream().map(x -> ((x - mean) / std)).collect(Collectors.toList());
     }
 
     public double max() {

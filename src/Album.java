@@ -3,6 +3,8 @@ import java.util.List;
 public class Album extends DataPoint {
     private String name;
     private int year;
+    public String artistName = "Michael Jackson";
+    
     public Album(String name, int year, double length, double tracks) {
         super(List.of(length, tracks));
         this.name = name;
@@ -11,6 +13,22 @@ public class Album extends DataPoint {
     @Override
     public String toString() {
         return "(" + name + ", " + year + ")";
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public int getYear() {
+        return year;
+    }
+    
+    public boolean isClassic() {
+        if (year < 1980) {
+            return true;
+        } else {
+            return false;
+        }
     }
     public static void main(String[] args) {
         List<Album> albums = new ArrayList<>();
