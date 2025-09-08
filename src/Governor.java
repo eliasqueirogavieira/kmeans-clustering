@@ -16,6 +16,22 @@ public class Governor extends DataPoint {
     public String toString() {
         return state + ": (longitude: " + longitude + ", age: " + age + ")";
     }
+    
+    public String getState() {
+        return state;
+    }
+    
+    public double getAge() {
+        return age;
+    }
+    
+    public String getRegion() {
+        if (longitude > -100) {
+            return "East";
+        } else {
+            return "West";
+        }
+    }
 
     public static void main(String[] args) {
         List<Governor> governors = new ArrayList<>();

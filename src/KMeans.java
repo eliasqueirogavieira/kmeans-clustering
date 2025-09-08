@@ -23,7 +23,6 @@ public class KMeans<Point extends DataPoint> {
         }
         this.points = points;
         zScoreNormalize();
-        // initialize empty clusters with random centroids
         clusters = new ArrayList<>();
         for (int i = 0; i < k; i++) {
             DataPoint randPoint = randomPoint();
@@ -111,7 +110,7 @@ public class KMeans<Point extends DataPoint> {
         }
         for (int i = 0; i < first.size(); i++) {
             for (int j = 0; j < first.get(0).numDimensions; j++) {
-                if (!first.get(i).dimensions.get(j).equals(second.get(i).dimensions.get(j))) {
+                if (Math.abs(first.get(i).dimensions.get(j) - second.get(i).dimensions.get(j)) > 0.0001) {
                     return false;
                 }
             }
